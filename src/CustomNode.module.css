@@ -4,6 +4,7 @@
     grid-template-columns: auto auto 1fr auto;
     height: 32px;
     padding-inline-end: 8px;
+    border-bottom: solid 1px #eee;
   }
   
   .expandIconWrapper {
@@ -14,7 +15,7 @@
     height: 24px;
     justify-content: center;
     width: 24px;
-    transition: transform linear .1s;
+    transition: transform linear 0.1s;
     transform: rotate(0deg);
   }
   

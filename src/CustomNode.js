@@ -30,10 +30,10 @@ export const CustomNode = (props) => {
         )}
       </div>
       <div>
-        <TypeIcon droppable={droppable} fileType={data?.fileType} />
+        <TypeIcon droppable={droppable || false} fileType={data?.fileType} />
       </div>
       <div className={styles.labelGridItem}>
-        <Typography variant="body2">{props.node.text}</Typography>
+        <Typography variant="body2">{`${props.node.text}`}</Typography>
       </div>
     </div>
   );

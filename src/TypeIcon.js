@@ -6,16 +6,16 @@ import DescriptionIcon from "@mui/icons-material/Description";
 
 export const TypeIcon = (props) => {
   if (props.droppable) {
-    return <FolderIcon />;
+    return <FolderIcon fontSize="large" />;
   }
 
   switch (props.fileType) {
     case "image":
-      return <ImageIcon />;
+      return <ImageIcon fontSize="large"/>;
     case "csv":
-      return <ListAltIcon />;
+      return <ListAltIcon fontSize="large"/>;
     case "text":
-      return <DescriptionIcon />;
+      return <DescriptionIcon fontSize="large"/>;
     default:
       return null;
   }

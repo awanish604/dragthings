@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import { ThemeProvider, CssBaseline } from "@mui/material";
 import { DndProvider } from "react-dnd";
+import { ThemeProvider, CssBaseline } from "@mui/material";
 import {
   Tree,
   MultiBackend,
@@ -8,8 +8,10 @@ import {
 } from "@minoru/react-dnd-treeview";
 import { CustomNode } from "./CustomNode";
 import { theme } from "./theme";
+import { Placeholder } from "./Placeholder";
 import styles from "./App.module.css";
 import SampleData from "./sample-default.json";
+import { CustomDragPreview } from "./CustomDragPreview";
 
 function App() {
   const [treeData, setTreeData] = useState(SampleData);
@@ -31,12 +33,26 @@ function App() {
                 onToggle={onToggle}
               />
             )}
+            dragPreviewRender={(monitorProps) => (
+              <CustomDragPreview monitorProps={monitorProps} />
+            )}
             onDrop={handleDrop}
             classes={{
               root: styles.treeRoot,
               draggingSource: styles.draggingSource,
-              dropTarget: styles.dropTarget
+              placeholder: styles.placeholderContainer
             }}
+            sort={false}
+            insertDroppableFirst={false}
+            canDrop={(tree, { dragSource, dropTargetId, dropTarget }) => {
+              if (dragSource?.parent === dropTargetId) {
+                return true;
+              }
+            }}
+            dropTargetOffset={5}
+            placeholderRender={(node, { depth }) => (
+              <Placeholder node={node} depth={depth} />
+            )}
           />
         </div>
       </DndProvider>
