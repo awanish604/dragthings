@@ -12,15 +12,22 @@ import { Placeholder } from "./Placeholder";
 import styles from "./App.module.css";
 import SampleData from "./sample-default.json";
 import { CustomDragPreview } from "./CustomDragPreview";
+import {useEffect} from 'react'
 
 function App() {
   const [treeData, setTreeData] = useState(SampleData);
   const handleDrop = (newTree) => {
-    console.log('Item has been dropped');
+    console.log('Item has been dropped'+new Date()+'>>>>'+new Date().getTime()   );
     console.log('Below is the new Tree array structure')
     console.log(newTree)
     setTreeData(newTree);
   }
+  useEffect(()=>{
+    const webgazer=window.webgazer
+    webgazer.setGazeListener((data,clock)=>{
+      console.log(data,clock)
+    }).begin()
+  },[])
 
   return (
     <ThemeProvider theme={theme}>
