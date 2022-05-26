@@ -4,7 +4,7 @@ import styles from "./CustomDragPreview.module.css";
 
 export const CustomDragPreview = (props) => {
   const item = props.monitorProps.item;
-
+  console.log(`${item.text} has been picked up!`);
   return (
     <div className={styles.root}>
       <div className={styles.icon}>

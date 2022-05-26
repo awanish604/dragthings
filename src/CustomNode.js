@@ -9,9 +9,13 @@ export const CustomNode = (props) => {
   const indent = props.depth * 24;
 
   const handleToggle = (e) => {
+    console.log(`${props.node.text} has been ${props.isOpen?'closed':'opened'}`);
+    //console.log(props);
     e.stopPropagation();
     props.onToggle(props.node.id);
   };
+
+  
 
   return (
     <div

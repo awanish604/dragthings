@@ -15,7 +15,12 @@ import { CustomDragPreview } from "./CustomDragPreview";
 
 function App() {
   const [treeData, setTreeData] = useState(SampleData);
-  const handleDrop = (newTree) => setTreeData(newTree);
+  const handleDrop = (newTree) => {
+    console.log('Item has been dropped');
+    console.log('Below is the new Tree array structure')
+    console.log(newTree)
+    setTreeData(newTree);
+  }
 
   return (
     <ThemeProvider theme={theme}>
